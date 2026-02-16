@@ -75,8 +75,31 @@
 </form>
 
 <script src="../js/login.js"></script>
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
+  const email = document.getElementById("emailLogin").value;
+  const password = document.getElementById("passwordLogin").value;
+
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  if (!user) {
+    alert("Nenhuma conta encontrada!");
+    return;
+  }
+
+  if (email === user.email && password === user.password) {
+    localStorage.setItem("loggedIn", "true");
+    alert("Login feito!");
+    window.location.href = "12-profile.html";
+  } else {
+    alert("Email ou senha incorretos!");
+  }
+});
+</script>
 
 </body>
 </html>
+
 
