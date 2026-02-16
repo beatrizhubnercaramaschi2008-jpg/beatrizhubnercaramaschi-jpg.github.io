@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title th:text="${story.title}">História</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<header>
+  <h2>Minha Página</h2>
+
+  <button id="menuToggle" class="mobile-only">☰</button>
+
+  <nav id="nav-links">
+    <a href="02-index.html" data-page="index">Home</a>
+    <a href="sobre.html" data-page="sobre">Sobre</a>
+    <a href="04-art.html" data-page="art">Art</a>
+    <a id="profileLink" href="07-login.html" data-page="profile">Perfil</a>
+  </nav>
+
+  <div class="nav-buttons">
+    <button id="themeToggle">🌙</button>
+  </div>
+</header>
+
+<h1 th:text="${story.title}">Título da História</h1>
+<p th:text="${story.description}">Descrição da história...</p>
+
+<h2>Capítulos</h2>
+<div th:each="chapter : ${story.chapters}" class="chapter-card">
+  <img src="https://via.placeholder.com/50" alt="Ícone do capítulo">
+  <div>
+    <h3 th:text="${chapter.title}">Capítulo X</h3>
+    <p>
+      <a th:href="${chapter.pdfUrl}" target="_blank">Abrir PDF</a>
+    </p>
+    <!-- Disqus -->
+    <div th:id="'disqus_thread_' + ${chapter.id}"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = window.location.href + '#chapter' + /*[[${chapter.id}]]*/'';
+        this.page.identifier = 'chapter-' + /*[[${chapter.id}]]*/'';
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://beatrizcaramaschi.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>New Story</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h2>Minha Página</h2>
+
+  <button id="menuToggle" class="mobile-only">☰</button>
+
+  <nav id="nav-links">
+    <a href="02-index.html" data-page="index">Home</a>
+    <a href="04-art.html" data-page="art">Art</a>
+    <a id="profileLink" href="07-login.html" data-page="profile">Perfil</a>
+  </nav>
+
+  <div class="nav-buttons">
+    <button id="themeToggle">🌙</button>
+  </div>
+</header>
+
+<div class="card">
+  <h1>Criar Nova História</h1>
+  <input type="text" placeholder="Título" class="input">
+  <textarea placeholder="Escreva sua história..." class="input" style="height:200px;"></textarea>
+  <button class="btn">Publicar</button>
+</div>
+
+<script>
+  // Espera a navbar carregar
+  setTimeout(() => {
+
+    /* ===== DESTACAR PÁGINA ATIVA ===== */
+    const page = location.pathname.split("/").pop().replace(".html", "");
+    document.querySelectorAll("nav a").forEach(a => {
+      if (a.dataset.page === page) {
+        a.classList.add("active");
+      }
+    });
+
+    /* ===== MODO ESCURO/CLARO ===== */
+    const themeBtn = document.getElementById("themeToggle");
+    themeBtn.onclick = () => {
+      document.body.classList.toggle("light-mode");
+      themeBtn.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+    };
+
+    /* ===== MENU MOBILE ===== */
+    const menuBtn = document.getElementById("menuToggle");
+    const nav = document.getElementById("nav-links");
+
+    menuBtn.onclick = () => {
+      nav.classList.toggle("open");
+    };
+
+  }, 50);
+</script>
+
+
+</body>
+</html>

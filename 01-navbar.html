@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang = "pt"> 
+  <head></head>
+  <body>
+    <script>
+function initNavbar() {
+  const profileLink = document.getElementById("profileLink");
+  if (profileLink && localStorage.getItem("logged") === "true") {
+    profileLink.href = "12-profile.html";
+  }
+
+  const page = location.pathname.split("/").pop().replace(".html", "");
+  document.querySelectorAll("#nav-links a").forEach(a => {
+    if (a.dataset.page === page) a.classList.add("active");
+  });
+
+  const themeBtn = document.getElementById("themeToggle");
+  if (themeBtn) {
+    themeBtn.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+    themeBtn.onclick = () => {
+      document.body.classList.toggle("light-mode");
+      themeBtn.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+    };
+  }
+
+  const menuBtn = document.getElementById("menuToggle");
+  const nav = document.getElementById("nav-links");
+  if (menuBtn && nav) {
+    menuBtn.onclick = () => nav.classList.toggle("open");
+  }
+
+  // fallback visual se header estiver invisível
+  const header = document.querySelector("header");
+  if (header) {
+    const cs = getComputedStyle(header);
+    if (cs.display === "none" || parseFloat(cs.height) === 0) {
+      header.style.background = header.style.background || "rgba(0,0,0,0.25)";
+      header.style.padding = header.style.padding || "20px 30px";
+      header.style.zIndex = header.style.zIndex || "1000";
+    }
+  }
+}
+
+window.initNavbar = initNavbar;
+</script>
+ </body>
+</html>

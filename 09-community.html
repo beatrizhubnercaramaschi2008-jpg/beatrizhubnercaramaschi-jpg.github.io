@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Communities</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>Minha Página</h2>
+
+  <button id="menuToggle" class="mobile-only">☰</button>
+
+  <nav id="nav-links">
+    <a href="02-index.html" data-page="index">Home</a>
+    <a href="sobre.html" data-page="sobre">Sobre</a>
+    <a href="04-art.html" data-page="art">Art</a>
+    <a id="profileLink" href="07-login.html" data-page="profile">Perfil</a>
+  </nav>
+
+  <div class="nav-buttons">
+    <button id="themeToggle">🌙</button>
+  </div>
+</header>
+
+
+<h1 class="hero">Comunidades</h1>
+
+<div class="card">
+  <h2><a href="community-detail.html">Arte & Fotografia</a></h2>
+  <p>Um espaço para artistas e fotógrafos partilharem trabalhos.</p>
+</div>
+
+<div class="card">
+  <h2><a href="community-detail.html">Histórias & Ficção</a></h2>
+  <p>Para quem ama escrever e ler narrativas criativas.</p>
+</div>
+
+<script>
+  // Espera a navbar carregar
+  setTimeout(() => {
+
+    /* ===== DESTACAR PÁGINA ATIVA ===== */
+    const page = location.pathname.split("/").pop().replace(".html", "");
+    document.querySelectorAll("nav a").forEach(a => {
+      if (a.dataset.page === page) {
+        a.classList.add("active");
+      }
+    });
+
+    /* ===== MODO ESCURO/CLARO ===== */
+    const themeBtn = document.getElementById("themeToggle");
+    themeBtn.onclick = () => {
+      document.body.classList.toggle("light-mode");
+      themeBtn.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+    };
+
+    /* ===== MENU MOBILE ===== */
+    const menuBtn = document.getElementById("menuToggle");
+    const nav = document.getElementById("nav-links");
+
+    menuBtn.onclick = () => {
+      nav.classList.toggle("open");
+    };
+
+  }, 50);
+</script>
+
+
+</body>
+</html>

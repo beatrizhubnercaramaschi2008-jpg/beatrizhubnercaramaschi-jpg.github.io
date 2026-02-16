@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Registrar - Blog Faiscas</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<header>
+  <h2>Minha Página</h2>
+
+  <button id="menuToggle" class="mobile-only">☰</button>
+
+  <nav id="nav-links">
+    <a href="02-index.html" data-page="index">Home</a>
+    <a href="sobre.html" data-page="sobre">Sobre</a>
+    <a href="04-art.html" data-page="art">Art</a>
+    <a id="profileLink" href="07-login.html" data-page="profile">Perfil</a>
+  </nav>
+
+  <div class="nav-buttons">
+    <button id="themeToggle">🌙</button>
+  </div>
+</header>
+
+
+
+<h1>Registrar</h1>
+<form action="/register" method="post">
+  <input type="text" name="username" placeholder="Nome de usuário" required>
+  <input type="password" name="password" placeholder="Senha" required>
+  <button type="submit">Registrar</button>
+</form>
+
+</body>
+</html>
+

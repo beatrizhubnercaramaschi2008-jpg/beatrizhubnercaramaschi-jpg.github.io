@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h2>Minha Página</h2>
+
+  <button id="menuToggle" class="mobile-only">☰</button>
+
+  <nav id="nav-links">
+    <a href="02-index.html" data-page="index">Home</a>
+    <a href="04-art.html" data-page="art">Art</a>
+    <a id="profileLink" href="07-login.html" data-page="profile">Perfil</a>
+  </nav>
+
+  <div class="nav-buttons">
+    <button id="themeToggle">🌙</button>
+  </div>
+</header>
+
+<script src="../js/profile.js"></script>
+
+<div class="card">
+  <h1>Meu Perfil</h1>
+
+  <div class="profile-box">
+    <img id="profilePic" class="profile-pic" src="default-pfp.png" alt="Foto de perfil">
+
+    <h2 id="profileName">Nome do Usuário</h2>
+    <p id="profileUsername">@username</p>
+    <p id="profileBio">Esta é a minha bio. Posso escrever o que quiser aqui.</p>
+
+    <div class="profile-buttons">
+      <a href="settings.html" class="btn">Configurações</a>
+      <a href="favorites.html" class="btn">Favoritos</a>
+    </div>
+  </div>
+</div>
+
+<script src="profile.js"></script>
+
+<script>
+  // Espera a navbar carregar
+  setTimeout(() => {
+
+    /* ===== DESTACAR PÁGINA ATIVA ===== */
+    const page = location.pathname.split("/").pop().replace(".html", "");
+    document.querySelectorAll("nav a").forEach(a => {
+      if (a.dataset.page === page) {
+        a.classList.add("active");
+      }
+    });
+
+    /* ===== MODO ESCURO/CLARO ===== */
+    const themeBtn = document.getElementById("themeToggle");
+    themeBtn.onclick = () => {
+      document.body.classList.toggle("light-mode");
+      themeBtn.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+    };
+
+    /* ===== MENU MOBILE ===== */
+    const menuBtn = document.getElementById("menuToggle");
+    const nav = document.getElementById("nav-links");
+
+    menuBtn.onclick = () => {
+      nav.classList.toggle("open");
+    };
+
+  }, 50);
+</script>
+
+
+
+
+</body>
+</html>

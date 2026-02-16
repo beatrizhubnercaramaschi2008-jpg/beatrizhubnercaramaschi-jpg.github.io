@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Art Scroll</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h2>Minha Página</h2>
+
+  <button id="menuToggle" class="mobile-only">☰</button>
+
+  <nav id="nav-links">
+    <a href="02-index.html" data-page="index">Home</a>
+    <a href="04-art.html" data-page="art">Art</a>
+    <a id="profileLink" href="07-login.html" data-page="profile">Perfil</a>
+  </nav>
+
+  <div class="nav-buttons">
+    <button id="themeToggle">🌙</button>
+  </div>
+</header>
+
+  <!-- FUNDO ANIMADO -->
+  <div class="art-background">
+
+    <div class="art-wrapper">
+
+      <h1 class="art-title">Galeria Art Scroll</h1>
+      <p class="art-subtitle">Rolagem vertical com fotos em destaque</p>
+
+      <!-- ITEM 1 -->
+      <div class="art-item">
+        <img class="art-img" src="https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg" alt="Foto 1">
+        <div class="art-caption">
+          <h3>Luz e Sombra</h3>
+          <p>Exploração de contraste, textura e silêncio visual.</p>
+        </div>
+      </div>
+
+      <!-- ITEM 2 -->
+      <div class="art-item">
+        <img class="art-img" src="https://images.pexels.com/photos/2101187/pexels-photo-2101187.jpeg" alt="Foto 2">
+        <div class="art-caption">
+          <h3>Cidade em Movimento</h3>
+          <p>Fragmentos de histórias que passam sem serem vistas.</p>
+        </div>
+      </div>
+
+      <!-- ITEM 3 -->
+      <div class="art-item">
+        <img class="art-img" src="https://images.pexels.com/photos/3225517/pexels-photo-3225517.jpeg" alt="Foto 3">
+        <div class="art-caption">
+          <h3>Silêncio Azul</h3>
+          <p>Um momento suspenso entre o real e o imaginado.</p>
+        </div>
+      </div>
+
+      <!-- ITEM 4 -->
+      <div class="art-item">
+        <img class="art-img" src="https://images.pexels.com/photos/1034662/pexels-photo-1034662.jpeg" alt="Foto 4">
+        <div class="art-caption">
+          <h3>Retrato Fragmentado</h3>
+          <p>Identidade, vulnerabilidade e presença no olhar.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<script>
+  // Espera a navbar carregar
+  setTimeout(() => {
+
+    /* ===== DESTACAR PÁGINA ATIVA ===== */
+    const page = location.pathname.split("/").pop().replace(".html", "");
+    document.querySelectorAll("nav a").forEach(a => {
+      if (a.dataset.page === page) {
+        a.classList.add("active");
+      }
+    });
+
+    /* ===== MODO ESCURO/CLARO ===== */
+    const themeBtn = document.getElementById("themeToggle");
+    themeBtn.onclick = () => {
+      document.body.classList.toggle("light-mode");
+      themeBtn.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+    };
+
+    /* ===== MENU MOBILE ===== */
+    const menuBtn = document.getElementById("menuToggle");
+    const nav = document.getElementById("nav-links");
+
+    menuBtn.onclick = () => {
+      nav.classList.toggle("open");
+    };
+
+  }, 50);
+</script>
+
+
+</body>
+</html>

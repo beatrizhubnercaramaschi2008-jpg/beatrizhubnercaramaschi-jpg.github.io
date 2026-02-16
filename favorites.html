@@ -1,0 +1,30 @@
+<header>
+  <h2>Minha Página</h2>
+
+  <button id="menuToggle" class="mobile-only">☰</button>
+
+  <nav id="nav-links">
+    <a href="02-index.html" data-page="index">Home</a>
+    <a href="04-art.html" data-page="art">Art</a>
+    <a id="profileLink" href="07-login.html" data-page="profile">Perfil</a>
+  </nav>
+
+  <div class="nav-buttons">
+    <button id="themeToggle">🌙</button>
+  </div>
+</header> <link rel="stylesheet" href="style.css">
+
+<div id="navbar"></div>
+
+<script>
+  fetch("01-navbar.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("navbar").innerHTML = html;
+    });
+</script>
+
+<div class="card">
+  <h1>Favoritos</h1>
+  <p>Aqui aparecerão suas histórias, artes e comunidades favoritas.</p>
+</div>

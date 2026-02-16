@@ -1,0 +1,34 @@
+ <link rel="stylesheet" href="style.css">
+
+<div id="navbar"></div>
+
+<script>
+  fetch("01-navbar.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("navbar").innerHTML = html;
+    });
+</script><
+
+script src="../js/settings.js"></script>
+
+
+<div class="card">
+  <h1>Configurações do Perfil</h1>
+
+  <label>Foto de Perfil</label>
+  <input type="file" id="newPic">
+
+  <label>Nome</label>
+  <input type="text" id="newName">
+
+  <label>Nome de Usuário</label>
+  <input type="text" id="newUsername">
+
+  <label>Bio</label>
+  <textarea id="newBio"></textarea>
+
+  <button id="saveBtn" class="btn">Salvar Alterações</button>
+</div>
+
+<script src="settings.js"></script>

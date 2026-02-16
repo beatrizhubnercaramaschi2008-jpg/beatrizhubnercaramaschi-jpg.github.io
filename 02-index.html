@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Meu Universo Criativo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h2>Minha Página</h2>
+
+  <button id="menuToggle" class="mobile-only">☰</button>
+
+  <nav id="nav-links">
+    <a href="02-index.html" data-page="index">Home</a>
+    <a href="11-art.html" data-page="art">Art</a>
+    <a id="profileLink" href="07-login.html" data-page="profile">Perfil</a>
+  </nav>
+
+  <div class="nav-buttons">
+    <button id="themeToggle">🌙</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h2>Bem-vindo ao meu mundo artístico</h2>
+  <p>Histórias, arte digital e criatividade.</p>
+</section>
+
+<div class="card">
+  <h1>Sobre</h1>
+  <p>
+    Este espaço é dedicado à minha arte, às minhas ideias e ao universo criativo que estou a construir. 
+    Aqui partilho inspirações, processos e projetos que refletem a minha visão artística. 
+    Em breve, este blog vai ganhar forma com histórias, ilustrações, comunidades e muito mais — 
+    tudo pensado para criar um ambiente onde a criatividade possa florescer.
+  </p>
+</div>
+
+<div class="card social-card">
+  <h2>Minhas Redes</h2>
+
+  <div class="social-links">
+
+    <a href="https://bsky.app/profile/neondustpng.bsky.social" class="social-item" target="_blank">
+      <span class="social-btn bluesky">🦋</span>
+      <span class="social-label">Bluesky</span>
+    </a>
+
+    <a href="https://www.tiktok.com/@neondust.png" class="social-item" target="_blank">
+      <span class="social-btn tiktok">🎵</span>
+      <span class="social-label">TikTok</span>
+    </a>
+
+    <a href="https://www.instagram.com/neondust.png/" class="social-item" target="_blank">
+      <span class="social-btn instagram">📸</span>
+      <span class="social-label">Instagram</span>
+    </a>
+
+    <a href="https://spacehey.com/neondust" class="social-item" target="_blank">
+      <span class="social-btn spacehey">⭐</span>
+      <span class="social-label">SpaceHey</span>
+    </a>
+
+  </div>
+</div>
+
+
+
+<script>
+  // Espera a navbar carregar
+  setTimeout(() => {
+
+    /* ===== DESTACAR PÁGINA ATIVA ===== */
+    const page = location.pathname.split("/").pop().replace(".html", "");
+    document.querySelectorAll("nav a").forEach(a => {
+      if (a.dataset.page === page) {
+        a.classList.add("active");
+      }
+    });
+
+    /* ===== MODO ESCURO/CLARO ===== */
+    const themeBtn = document.getElementById("themeToggle");
+    themeBtn.onclick = () => {
+      document.body.classList.toggle("light-mode");
+      themeBtn.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+    };
+
+    /* ===== MENU MOBILE ===== */
+    const menuBtn = document.getElementById("menuToggle");
+    const nav = document.getElementById("nav-links");
+
+    menuBtn.onclick = () => {
+      nav.classList.toggle("open");
+    };
+
+  }, 50);
+</script>
+
+</body>
+</html>

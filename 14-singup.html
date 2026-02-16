@@ -1,0 +1,42 @@
+ <header>
+  <h2>Minha Página</h2>
+
+  <button id="menuToggle" class="mobile-only">☰</button>
+
+  <nav id="nav-links">
+    <a href="02-index.html" data-page="index">Home</a>
+    <a href="04-art.html" data-page="art">Art</a>
+    <a id="profileLink" href="07-login.html" data-page="profile">Perfil</a>
+  </nav>
+
+  <div class="nav-buttons">
+    <button id="themeToggle">🌙</button>
+  </div>
+</header>
+ 
+ <link rel="stylesheet" href="style.css">
+
+<div class="card">
+  <h1>Criar Conta</h1>
+
+  <label>Nome</label>
+  <input type="text" id="signupName">
+
+  <label>Nome de Usuário</label>
+  <input type="text" id="signupUsername">
+
+  <label>Email</label>
+  <input type="email" id="signupEmail">
+
+  <label>Senha</label>
+  <input type="password" id="signupPassword">
+
+  <label>Foto de Perfil</label>
+  <input type="file" id="signupPic">
+
+  <button id="signupBtn" class="btn">Criar Conta</button>
+
+  <p>Já tens conta? <a href="07-login.html">Entrar</a></p>
+</div>
+
+<script src="../js/signup.js"></script>
